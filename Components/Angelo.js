@@ -9,7 +9,7 @@ class Angelo extends React.Component {
     render() {
         return(
             <View style={styles.container}>
-                <ImageBackground source={require("../assets/forest.png")} style={styles.back}>
+                <ImageBackground source={require("../assets/forest.jpg")} style={styles.back}>
                 <Svg height={HEIGHT} width={WIDTH}>
                         <View style={{marginTop: 20, marginLeft: WIDTH/2}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
