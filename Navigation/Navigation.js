@@ -8,19 +8,19 @@ const CoreStack = createStackNavigator({
     Galaxy: {
         screen: Galaxy,
         navigationOptions: {
-            headerShown: false
+            headerShown: true
         }
     },
     Angelo: {
         screen: Angelo,
         navigationOptions: {
-            headerShown: false
+            headerShown: true
         }
     },
     Aliens: {
         screen: Aliens,
         navigationOptions: {
-            headerShown: false
+            headerShown: true
         }
     }
 })
