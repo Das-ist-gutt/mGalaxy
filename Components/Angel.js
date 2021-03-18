@@ -16,12 +16,13 @@ class Angel extends React.Component {
         super(props)
         this.state = {
             challenge: false,
-            prize: false
+            prize: false,
+            hide: true
         }
     }
 
     _challenge = (message) => {
-        if (this.state.challenge) {
+        if (this.state.challenge && !this.state.hide) {
             return(
                 <View style={styles.pop}>
                     <Text style={{fontWeight: 'bold'}}>{message}</Text>
@@ -37,7 +38,7 @@ class Angel extends React.Component {
     }
 
     _prize = (message) => {
-        if (this.state.prize)
+        if (this.state.prize && !this.state.hide)
             return(
                 <View style={styles.pop}>
                     <Text style={{fontWeight: 'bold'}}>{message}</Text>
@@ -56,13 +57,24 @@ class Angel extends React.Component {
             this.setState({challenge: false})
         else if (type == "prize")
             this.setState({prize: false})
+        this.setState({hide: true})
     }
 
     _popUp = (type) => {
-        if (type == "challenge")
-            this.setState({challenge: !this.state.challenge})
-        else if (type == "prize")
-            this.setState({prize: !this.state.prize})
+        if (this.state.hide) {
+            if (type == "challenge")
+                this.setState({challenge: true})
+            else if (type == "prize")
+                this.setState({prize: true})
+            this.setState({hide: false})
+        }
+        else {
+            if (type == "challenge")
+                this.setState({challenge: false})
+            else if (type == "prize")
+                this.setState({prize: false})
+            this.setState({hide: true})
+        }
     }
 
     render() {
@@ -89,7 +101,6 @@ class Angel extends React.Component {
                         <View style={{marginTop: 30, marginLeft: 130}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <WaveIndicator color='white' style={styles.pulse} size={50}/>
                         <View style={{marginTop: 60, marginLeft: 230}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
@@ -103,6 +114,8 @@ class Angel extends React.Component {
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
                     </Svg>
+                    <WaveIndicator color='white' style={{position: 'absolute', paddingLeft: 5, marginTop: 50}} size={100}/>
+                    <WaveIndicator color='white' style={{position: 'absolute', paddingLeft: 220, marginTop: 185}} size={100}/>
                     <TouchableOpacity
                         style={{
                             position: 'absolute', marginLeft: 30, marginTop: 75,

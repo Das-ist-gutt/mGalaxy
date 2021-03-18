@@ -15,12 +15,13 @@ class Aliens extends React.Component {
         super(props)
         this.state = {
             challenge: false,
-            prize: false
+            prize: false,
+            hide: true
         }
     }
 
     _challenge = (message) => {
-        if (this.state.challenge) {
+        if (this.state.challenge && !this.state.hide) {
             return(
                 <View style={styles.pop}>
                     <Text style={{fontWeight: 'bold'}}>{message}</Text>
@@ -36,7 +37,7 @@ class Aliens extends React.Component {
     }
 
     _prize = (message) => {
-        if (this.state.prize)
+        if (this.state.prize && !this.state.hide)
             return(
                 <View style={styles.pop}>
                     <Text style={{fontWeight: 'bold'}}>{message}</Text>
@@ -55,13 +56,24 @@ class Aliens extends React.Component {
             this.setState({challenge: false})
         else if (type == "prize")
             this.setState({prize: false})
+        this.setState({hide: true})
     }
 
     _popUp = (type) => {
-        if (type == "challenge")
-            this.setState({challenge: !this.state.challenge})
-        else if (type == "prize")
-            this.setState({prize: !this.state.prize})
+        if (this.state.hide) {
+            if (type == "challenge")
+                this.setState({challenge: true})
+            else if (type == "prize")
+                this.setState({prize: true})
+            this.setState({hide: false})
+        }
+        else {
+            if (type == "challenge")
+                this.setState({challenge: false})
+            else if (type == "prize")
+                this.setState({prize: false})
+            this.setState({hide: true})
+        }
     }
 
     render() {
@@ -88,7 +100,6 @@ class Aliens extends React.Component {
                         <View style={{marginTop: 100, marginLeft: 140}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <WaveIndicator color='white' style={styles.pulse} size={50}/>
                         <View style={{marginTop: 20, marginLeft: 240}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
@@ -96,6 +107,8 @@ class Aliens extends React.Component {
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
                     </Svg>
+                    <WaveIndicator color='white' style={{position: 'absolute', paddingLeft: 215, marginTop: 50}} size={100}/>
+                    <WaveIndicator color='white' style={{position: 'absolute', paddingLeft: 215, marginTop: 195}} size={100}/>
                     <TouchableOpacity
                         style={{
                             position: 'absolute', marginLeft: 240, marginTop: 75,
@@ -135,8 +148,8 @@ const styles = StyleSheet.create({
     },
     pulse: {
         position: 'absolute',
-        paddingLeft: 125,
-        paddingTop: 335
+        paddingRight: 40,
+        marginBottom: 20
     },
     pop: {
         backgroundColor: 'white',

@@ -31,9 +31,9 @@ class Galaxy extends React.Component {
                     </Svg>
                     <View style={{position: 'absolute', marginLeft: 220, marginTop: 70}}>
                         <Text style={styles.menuText}>Profil</Text>
-                        <Text style={styles.menuText}>Ajouter un produit</Text>
+                        <Text style={styles.menuText}>Saisir un code</Text>
                         <Text style={styles.menuText}>Aide</Text>
-                        <Text style={styles.menuText}>Borne la plus proche</Text>
+                        <Text style={styles.menuText}>Fontaine la plus proche</Text>
                     </View>
                     <TouchableOpacity style={{position: 'absolute', marginLeft: 220, marginTop: 20}} onPress={() => {this._switchMenu()}}>
                         <Image source={require("../assets/arrow.png")} style={{width: 30, height: 30}}/>
@@ -89,6 +89,7 @@ class Galaxy extends React.Component {
                             <WaveIndicator color='white'/>
                         </TouchableOpacity>
                     </View>
+                    <Text style={styles.tuto}>Appuyez sur une planète pour entrer dans un monde</Text>
                     {this._showMenu()}
                 </ImageBackground>
             </View>
@@ -119,6 +120,15 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         borderBottomWidth: 1,
         borderBottomColor: 'grey'
+    },
+    tuto: {
+        color: '#c9cacc',
+        position: 'absolute',
+        fontSize: 25,
+        bottom: 10,
+        left: 10,
+        fontFamily: 'sans-serif',
+        fontWeight: 'bold'
     }
 })
 
