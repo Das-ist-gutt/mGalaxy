@@ -10,7 +10,7 @@ class Galaxy extends React.Component {
 
 
     _goAngelo() {
-        this.props.navigation.navigate("Angelo", {})
+        this.props.navigation.navigate("Angel", {})
     }
 
     _goAliens() {
@@ -31,7 +31,7 @@ class Galaxy extends React.Component {
                         >
                         </TouchableOpacity>
                         <View style={styles.text}>
-                            <Text style={{textAlign: 'center'}}>Angelo</Text>
+                            <Text style={{textAlign: 'center'}}>Angel</Text>
                         </View>
                     </View>
                     <View style={{marginLeft: 208, marginTop: 318, position: 'absolute'}}>

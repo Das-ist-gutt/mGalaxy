@@ -2,7 +2,8 @@ import React from 'react'
 import {
     View, Image, Text,
     StyleSheet, ImageBackground,
-    TouchableOpacity, Dimensions
+    TouchableOpacity, ScrollView,
+    Dimensions
 } from 'react-native'
 import {Line, Svg} from 'react-native-svg'
 import {WaveIndicator} from 'react-native-indicators'
@@ -10,7 +11,7 @@ import {WaveIndicator} from 'react-native-indicators'
 const WIDTH = Dimensions.get("screen").width
 const HEIGHT = Dimensions.get("screen").height
 
-class Aliens extends React.Component {
+class Angel extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -25,7 +26,7 @@ class Aliens extends React.Component {
                 <View style={styles.pop}>
                     <Text style={{fontWeight: 'bold'}}>{message}</Text>
                     <View style={styles.content}>
-                        <Text style={{textAlign: 'center'}}>Suivre MuglerFrance sur Instagram</Text>
+                        <Text style={{textAlign: 'center'}}>Poster une photo avec le #Mugler sur Instagram</Text>
                     </View>
                     <TouchableOpacity style={styles.confirm} onPress={() => {this._confirm("challenge")}}>
                         <Text style={{color: 'white', fontWeight: 'bold'}}>OK</Text>
@@ -41,7 +42,7 @@ class Aliens extends React.Component {
                 <View style={styles.pop}>
                     <Text style={{fontWeight: 'bold'}}>{message}</Text>
                     <View style={styles.content}>
-                        <Text style={{textAlign: 'center'}}>2 places pour la prochaine FashionWeek</Text>
+                        <Text style={{textAlign: 'center'}}>Une place VIP au prochain shooting photo Mugler</Text>
                     </View>
                     <TouchableOpacity style={styles.confirm} onPress={() => {this._confirm("prize")}}>
                         <Text style={{color: 'white', fontWeight: 'bold'}}>OK</Text>
@@ -67,52 +68,58 @@ class Aliens extends React.Component {
     render() {
         return(
             <View style={styles.container}>
-                <ImageBackground source={require("../assets/desert.jpg")} style={styles.back}>
+                <ImageBackground source={require("../assets/forest.jpg")} style={styles.back}>
                     <Svg height={HEIGHT} width={WIDTH}>
-                        <View style={{marginTop: 20, marginLeft: 100}}>
+                        <View style={{marginTop: 20, marginLeft: WIDTH/2}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <Line x1="110" y1="30" x2="210" y2="100" stroke="white" strokeWidth="4" />
-                        <View style={{marginTop: 50, marginLeft: 200}}>
+                        <Line x1={WIDTH / 2 + 10} y1="30" x2="110" y2="100" stroke="white" strokeWidth="4" />
+                        <View style={{marginTop: 50, marginLeft: 100}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <Line x1="210" y1="100" x2="90" y2="220" stroke="white" strokeWidth="4" />
-                        <View style={{marginTop: 100, marginLeft: 80}}>
+                        <Line x1="110" y1="100" x2="290" y2="130" stroke="white" strokeWidth="4" />
+                        <View style={{marginTop: 10, marginLeft: 280}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <Line x1="90" y1="220" x2="210" y2="240" stroke="white" strokeWidth="4" />
-                        <View style={{marginLeft: 200}}>
+                        <Line x1="290" y1="130" x2="270" y2="180" stroke="white" strokeWidth="4" />
+                        <View style={{marginTop: 30, marginLeft: 260}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <Line x1="90" y1="220" x2="150" y2="360" stroke="white" strokeWidth="4" />
-                        <View style={{marginTop: 100, marginLeft: 140}}>
+                        <Line x1="110" y1="100" x2="140" y2="230" stroke="white" strokeWidth="4" />
+                        <View style={{marginTop: 30, marginLeft: 130}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
                         <WaveIndicator color='white' style={styles.pulse} size={50}/>
-                        <View style={{marginTop: 20, marginLeft: 240}}>
+                        <View style={{marginTop: 60, marginLeft: 230}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
-                        <View style={{marginTop: 100, marginLeft: 80}}>
+                        <View style={{marginTop: 30, marginLeft: 70}}>
+                            <Image source={require("../assets/star.png")} style={styles.image}/>
+                        </View>
+                        <View style={{marginTop: 30, marginLeft: 250}}>
+                            <Image source={require("../assets/star.png")} style={styles.image}/>
+                        </View>
+                        <View style={{marginTop: 60, marginLeft: 160}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
                     </Svg>
                     <TouchableOpacity
                         style={{
-                            position: 'absolute', marginLeft: 240, marginTop: 75,
-                            backgroundColor: 'white', borderRadius: 100, padding: 10
-                        }}
-                        onPress={() => {this._popUp("prize")}}
-                    >
-                        <Image source={require("../assets/prize.png")} style={{width: 30, height: 30}}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={{
-                            position: 'absolute', marginLeft: 240, marginTop: 220,
+                            position: 'absolute', marginLeft: 30, marginTop: 75,
                             backgroundColor: 'white', borderRadius: 100, padding: 10
                         }}
                         onPress={() => {this._popUp("challenge")}}
                     >
                         <Image source={require("../assets/challenge.png")} style={{width: 30, height: 30}}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{
+                            position: 'absolute', marginLeft: 245, marginTop:210,
+                            backgroundColor: 'white', borderRadius: 100, padding: 10
+                        }}
+                        onPress={() => {this._popUp("prize")}}
+                    >
+                        <Image source={require("../assets/prize.png")} style={{width: 30, height: 30}}/>
                     </TouchableOpacity>
                     {this._challenge("Voici votre nouveau challenge !")}
                     {this._prize("Nous avons un cadeau pour vous !")}
@@ -135,8 +142,8 @@ const styles = StyleSheet.create({
     },
     pulse: {
         position: 'absolute',
-        paddingLeft: 125,
-        paddingTop: 335
+        paddingLeft: 116,
+        paddingTop: 205
     },
     pop: {
         backgroundColor: 'white',
@@ -163,4 +170,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Aliens
+export default Angel

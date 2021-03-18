@@ -1,7 +1,7 @@
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import Galaxy from '../Components/Galaxy.js'
-import Angelo from '../Components/Angelo.js'
+import Angel from '../Components/Angel.js'
 import Aliens from '../Components/Aliens.js'
 
 const CoreStack = createStackNavigator({
@@ -11,8 +11,8 @@ const CoreStack = createStackNavigator({
             headerShown: true
         }
     },
-    Angelo: {
-        screen: Angelo,
+    Angel: {
+        screen: Angel,
         navigationOptions: {
             headerShown: true
         }
