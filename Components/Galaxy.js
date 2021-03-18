@@ -1,5 +1,10 @@
 import React from 'react'
-import {View, Image, Text, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native'
+import {
+    View, Image, Text,
+    StyleSheet, ImageBackground,
+    TouchableOpacity
+} from 'react-native'
+import {Circle, Svg} from "react-native-svg"
 
 class Galaxy extends React.Component {
 
@@ -15,15 +20,46 @@ class Galaxy extends React.Component {
     render() {
         return(
             <View style={styles.container}>
-                <ImageBackground source={require("../assets/galaxy.png")} style={styles.back}>
-                    <TouchableOpacity style={styles.planet} onPress={() => this._goAngelo()}>
-                        <Image source={require("../assets/angelo.png")} style={styles.image}/>
-                        <Text style={{color: 'white', alignItems: 'center'}}>Angelo</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.planet} onPress={() => this._goAliens()}>
-                        <Image source={require("../assets/aliens.png")} style={styles.image}/>
-                        <Text style={{color: 'white', alignItems: 'center'}}>Aliens</Text>
-                    </TouchableOpacity>
+                <ImageBackground source={require("../assets/test.jpg")} style={styles.back}>
+                    <View style={{marginLeft: 265, marginTop: 127, position: 'absolute'}}>
+                        <TouchableOpacity
+                            style={{
+                                alignItems:'center', justifyContent:'center',
+                                width:55, height:55, borderRadius:50
+                            }}
+                            onPress={() => this._goAngelo()}
+                        >
+                        </TouchableOpacity>
+                        <View style={styles.text}>
+                            <Text style={{textAlign: 'center'}}>Angelo</Text>
+                        </View>
+                    </View>
+                    <View style={{marginLeft: 208, marginTop: 318, position: 'absolute'}}>
+                        <TouchableOpacity
+                            style={{
+                                alignItems:'center', justifyContent:'center',
+                                width:90, height:90, borderRadius:50
+                            }}
+                            onPress={() => {}}
+                        >
+                        </TouchableOpacity>
+                        <View style={styles.text}>
+                            <Text style={{textAlign: 'center'}}>???</Text>
+                        </View>
+                    </View>
+                    <View style={{marginLeft: 37, marginTop: 345, position: 'absolute'}}>
+                        <TouchableOpacity
+                            style={{
+                                alignItems:'center', justifyContent:'center',
+                                width:65, height:65, borderRadius:50
+                            }}
+                            onPress={() => this._goAliens()}
+                        >
+                        </TouchableOpacity>
+                        <View style={styles.text}>
+                            <Text style={{textAlign: 'center'}}>Aliens</Text>
+                        </View>
+                    </View>
                 </ImageBackground>
             </View>
         )
@@ -37,10 +73,10 @@ const styles = StyleSheet.create({
     back: {
         flex:1
     },
-    planet: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+    text: {
+        marginTop: 10,
+        backgroundColor: 'white',
+        borderRadius: 30
     },
     image: {
         width: 50,

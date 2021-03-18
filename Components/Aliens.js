@@ -1,6 +1,12 @@
 import React from 'react'
-import {View, Image, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Dimensions} from 'react-native'
+import {
+    View, Image, Text,
+    StyleSheet, ImageBackground,
+    TouchableOpacity, ScrollView,
+    Dimensions
+} from 'react-native'
 import {Line, Svg} from 'react-native-svg'
+import {WaveIndicator} from 'react-native-indicators'
 
 const WIDTH = Dimensions.get("screen").width
 const HEIGHT = Dimensions.get("screen").height
@@ -18,6 +24,14 @@ class Aliens extends React.Component {
                         <View style={{marginTop: 50, marginLeft: 200}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
+                        <View
+                            style={{
+                                position: 'absolute', marginLeft: 240, marginTop: 75,
+                                backgroundColor: 'white', borderRadius: 100, padding: 10
+                            }}
+                        >
+                            <Image source={require("../assets/prize.png")} style={{width: 30, height: 30}}/>
+                        </View>
                         <Line x1="210" y1="100" x2="90" y2="220" stroke="white" strokeWidth="4" />
                         <View style={{marginTop: 100, marginLeft: 80}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
@@ -26,10 +40,19 @@ class Aliens extends React.Component {
                         <View style={{marginLeft: 200}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
+                        <View
+                            style={{
+                                position: 'absolute', marginLeft: 240, marginTop: 220,
+                                backgroundColor: 'white', borderRadius: 100, padding: 10
+                            }}
+                        >
+                            <Image source={require("../assets/challenge.png")} style={{width: 30, height: 30}}/>
+                        </View>
                         <Line x1="90" y1="220" x2="150" y2="360" stroke="white" strokeWidth="4" />
                         <View style={{marginTop: 100, marginLeft: 140}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
+                        <WaveIndicator color='white' style={styles.pulse} size={50}/>
                         <View style={{marginTop: 20, marginLeft: 240}}>
                             <Image source={require("../assets/star.png")} style={styles.image}/>
                         </View>
@@ -50,14 +73,14 @@ const styles = StyleSheet.create({
     back: {
         flex:1
     },
-    planet: {
-        flex: 1,
-        alignSelf: 'center',
-        justifyContent: 'center'
-    },
     image: {
         width: 20,
         height: 20
+    },
+    pulse: {
+        position: 'absolute',
+        paddingLeft: 125,
+        paddingTop: 335
     }
 })
 
