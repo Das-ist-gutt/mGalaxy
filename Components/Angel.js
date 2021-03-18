@@ -2,7 +2,7 @@ import React from 'react'
 import {
     View, Image, Text,
     StyleSheet, ImageBackground,
-    TouchableOpacity, ScrollView,
+    TouchableOpacity,
     Dimensions
 } from 'react-native'
 import {Line, Svg} from 'react-native-svg'
