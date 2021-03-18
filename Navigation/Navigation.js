@@ -15,7 +15,8 @@ const CoreStack = createStackNavigator({
     Galaxy: {
         screen: Galaxy,
         navigationOptions: {
-            headerShown: true
+            headerShown: true,
+            title: "Galaxie"
         }
     },
     Angel: {

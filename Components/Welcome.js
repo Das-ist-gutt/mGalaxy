@@ -14,10 +14,13 @@ class Welcome extends React.Component {
         return(
             <View style={styles.container}>
                 <ImageBackground source={require("../assets/welcome.jpg")} style={styles.back}>
-                    <Image source={require("../assets/mugler.png")} style={{width: 240, height: 35}}/>
-                    <TouchableOpacity style={styles.area} onPress={() => {this._goGalaxy()}}>
-                        <Text style={{color: 'white', fontSize: 20}}>Bienvenue</Text>
-                    </TouchableOpacity>
+                    <Image source={require("../assets/mugler.png")} style={{width: 250, height: 35}}/>
+                    <View style={styles.area}>
+                        <Text style={styles.text}>Bienvenue</Text>
+                        <TouchableOpacity onPress={() => {this._goGalaxy()}}>
+                            <Image source={require("../assets/arrowRight.png")} style={{width: 25, height: 25, marginTop: 15}}/>
+                        </TouchableOpacity>
+                    </View>
                 </ImageBackground>
             </View>
         )
@@ -35,12 +38,14 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     area: {
-        borderColor: 'white',
-        borderRadius: 30,
-        borderWidth: 2,
         alignItems: 'center',
-        padding: 10,
         marginTop: 30
+    },
+    text: {
+        color: 'white',
+        fontSize: 20,
+        borderBottomColor: 'white',
+        borderBottomWidth: 1,
     }
 })
 
